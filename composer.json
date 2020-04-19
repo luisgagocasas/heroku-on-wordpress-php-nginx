@@ -1,0 +1,56 @@
+{
+  "name": "My wordpress site",
+  "description": "My WordPress site",
+  "repositories": [{
+    "type": "composer",
+    "url": "http://wpackagist.org"
+  }, {
+    "type": "package",
+    "package": {
+      "name": "wordpress",
+      "type": "webroot",
+      "version": "5.4",
+      "dist": {
+        "type": "zip",
+        "url": "https://wordpress.org/wordpress-5.4.zip"
+      },
+      "require": {
+        "fancyguy/webroot-installer": "1.0.0"
+      }
+    }
+  }],
+  "require": {
+    "php": ">=7.3.0",
+    "wordpress": "5.4",
+    "fancyguy/webroot-installer": "1.0.0",
+    "vlucas/phpdotenv": "^2.4",
+    "wpackagist-plugin/akismet":"dev-trunk",
+    "wpackagist-plugin/wordpress-seo":">=7.0.2",
+    "wpackagist-plugin/query-monitor":"dev-trunk",
+    "wpackagist-theme/indite":"1.0.0",
+    "wpackagist-plugin/wp-pagenavi":"dev-trunk",
+    "wpackagist-plugin/meta-box":"dev-trunk",
+    "wpackagist-plugin/alx-extensions":"dev-trunk"
+  },
+  "extra": {
+    "webroot-dir": "public/wp",
+    "webroot-package": "wordpress",
+    "installer-paths": {
+      "public/content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/content/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "public/content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "dev-master"
+  },
+  "config": {
+    "secure-http": false
+  }
+}

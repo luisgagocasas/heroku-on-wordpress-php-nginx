@@ -1,0 +1,40 @@
+{
+  "name": "My wordpress site",
+  "description": "Template for deploying WordPress with nginx to Heroku",
+  "repository": "",
+  "success_url": "/",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
+    "WP_ENV": {
+      "description": "Options: prod -> production | dev -> developer",
+      "value": "prod"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "The Amazon Access Key.",
+      "value": "123"
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "The Amazon Secret Access Key.",
+      "value": "123"
+    },
+    "DISABLE_WP_CRON": {
+      "description": "Disable WordPress internal cron-job.",
+      "value": "true"
+    },
+    "WP_CACHE": {
+      "description": "Enable caching via Memcachier and Batcache.",
+      "value": "true"
+    },
+    "WP_DEBUG": {
+      "description": "Enable mode debug",
+      "value": "true"
+    }
+  },
+  "addons": [
+    "cleardb",
+    "sendgrid",
+    "memcachier",
+    "papertrail",
+    "newrelic"
+  ]
+}
